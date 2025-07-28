@@ -1,35 +1,37 @@
 package day6.usingfinal;
 
 public class FinalVariable {
-	// Program to demonstrate final Variable
-	
-	
-		// final int x; // final instance variable must be initialized
+    // Program to demonstrate final variables
 
-		final int x = 100;
+    // final instance variable must be initialized either at declaration or in constructor
+    final int x = 100;
 
-		// Declare a static blank final variable.
-		final static int Y;
+    // Declare and initialize static final variable using static block or during declaration
+    final static int Y; // Correct: Static blank final variable
 
-		// Declare & intialize static final variable.
-		final static int Z = 10;
+    final static int Z = 10; // Correct: Initialized during declaration
 
-		// instatnce method
-		void change() {
-			x = 30; // final variables can't be reassigned
-			Y = 200; // final static variables can't be reassigned
-		}
+    // Static block to initialize static final variable Y
+    static {
+        Y = 20; // Valid: final static variable can be assigned once in static block
+        // Z = 100; // Invalid: Z is already initialized
+        System.out.println("Value of Y: " + Y);
+    }
 
-		@Override
-		public String toString() {
-			return "FinalVariable [x=" + x + ", Y" + Y + "]";
-		}
+    // Instance method
+    void change() {
+        // x = 30; // Invalid: final variables can't be reassigned
+        // Y = 200; // Invalid: final static variables can't be reassigned
+    }
 
-		// Declare a static block to initialize the final static variable.
-		static {
-			Y = 20;
-			//Z = 100; // Once intialized can't be reassigned
-			System.out.println("Value of Y: " + Y);
-		}
+    @Override
+    public String toString() {
+        return "FinalVariable [x=" + x + ", Y=" + Y + ", Z=" + Z + "]";
+    }
 
+    // main method to test the class
+    public static void main(String[] args) {
+        FinalVariable obj = new FinalVariable();
+        System.out.println(obj);
+    }
 }
