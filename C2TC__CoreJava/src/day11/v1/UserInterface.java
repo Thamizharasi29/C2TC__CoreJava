@@ -1,6 +1,7 @@
 package day11.v1;
 
-public class UserInterface {
+
+public class UserInterface {	
 
 	public static void main(String[] args) {
 		try {
